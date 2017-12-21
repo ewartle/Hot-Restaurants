@@ -10,38 +10,71 @@
 
 <body>
     <div class=container>
-        <div class="jumbotron">
+        <div class="jumbotron" align="center">
             <h1><span class="glyphicon glyphicon-fire"></span> Hot Restaurant!</h1>
             <hr>
             <p>Make your reservation</p>
-            <a href="/#">
-                <button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button>
+            <a href="./table.html">
+                <button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-list-alt"></span> View Tables</button>
             </a>
-            <a href="/#">
-                <button type="button" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-home"></span></button>
+            <a href="./home.html">
+                <button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-home"></span></button>
             </a>
         </div>
-        <form role="form">
-            <div class="form-group">
-                <label for="exampleInputName">name</label>
-                <input type="name" class="form-control" id="exampleInputName" placeholder="">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Table Reservation</strong></h3>
             </div>
-            <div class="form-group">
-                <label for="exampleInputPhoneNumber">PhoneNumber</label>
-                <input type="password" class="form-control" id="exampleInputPhoneNumber" placeholder="">
+            <div class="panel-body" id="well-section2">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="exampleInputName">Name</label>
+                        <input type="name" class="form-control" id="name" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPhoneNumber">Phone Number</label>
+                        <input type="phoneNumber" class="form-control" id="phoneNumber" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Email</label>
+                        <input type="Email" class="form-control" id="email" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputUniqueId">Unique ID</label>
+                        <input type="id" class="form-control" id="uniqueId" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="add-btn">Submit</button>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="exampleInputEmail">Email</label>
-                <input type="password" class="form-control" id="exampleInputEmail" placeholder="">
-            </div>
-             <div class="form-group">
-                <label for="exampleInputUniqueId">Unique ID</label>
-                <input type="id" class="form-control" id="exampleInputId" placeholder="">
-            </div>
-            
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        </div>
+        <a href="#"> API Table Link </a> <a href="#"> API Wait List </a>
     </div>
+    <script type="text/javascript">
+    $("#add-btn").on("click", function(event) {
+        event.preventDefault();
+
+        var newReservation = {
+            name: $("#name").val().trim(),
+            phoneNumber: $("#phoneNumber").val().trim(),
+            email: $("#email").val().trim(),
+            uniqueId: $("#uniqueId").val().trim()
+        };
+
+        console.log(newReservation);
+
+
+        $.post("/api/new", newReservation)
+            .done(function(data) {
+                console.log(data);
+                if () {
+                    alert("You have a table!");
+                } else {
+                    alert("You are on the waitlist.");
+                }
+            });
+
+    });
+    </script>
 </body>
 
 </html>
