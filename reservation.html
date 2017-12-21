@@ -54,10 +54,10 @@
         event.preventDefault();
 
         var newReservation = {
-            name: $("#name").val().trim(),
+            customerName: $("#name").val().trim(),
             phoneNumber: $("#phoneNumber").val().trim(),
-            email: $("#email").val().trim(),
-            uniqueId: $("#uniqueId").val().trim()
+            customerEmail: $("#email").val().trim(),
+            customerID: $("#uniqueId").val().trim()
         };
 
         console.log(newReservation);
@@ -66,11 +66,11 @@
         $.post("/api/new", newReservation)
             .done(function(data) {
                 console.log(data);
-                if () {
-                    alert("You have a table!");
-                } else {
-                    alert("You are on the waitlist.");
-                }
+         //       if () {
+        //            alert("You have a table!");
+        //        } else {
+        //            alert("You are on the waitlist.");
+       //         }
             });
 
     });

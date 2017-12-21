@@ -47,16 +47,16 @@
             wellSection.addClass("well");
             wellSection.attr("id", "character-well-" + i);
             $("#well-section").append(wellSection);
-            $("#character-well-" + i).append("<h2>" + data[i].uniqueId + "</h2>");
+            $("#character-well-" + i).append("<h2>" + data[i].customerID + "</h2>");
         }
     });
     $.get("/api/waitlist", function(data) {
         for (var i = 0; i < data.length; i++) {
             var wellSection2 = $("<div>");
             wellSection2.addClass("well");
-            wellSection2.attr("id", "character-well-" + i);
-            $("#well-section2").append(wellSection);
-            $("#character-well-" + i).append("<h2>" + data[i].uniqueId + "</h2>");
+            wellSection2.attr("id", "character-well-2" + i);
+            $("#well-section2").append(wellSection2);
+            $("#character-well-2" + i).append("<h2>" + data[i].customerID + "</h2>");
         }
     });
     </script>

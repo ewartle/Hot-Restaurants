@@ -22,19 +22,19 @@ var tables = [{
         customerName: "John Liscar",
         phoneNumber: "7065706063",
         customerEmail: "john.liscar@gmail.com",
-        customerID: ""
+        customerID: "1424"
     },
     {
         customerName: "Austin Branham",
         phoneNumber: "7708837281",
         customerEmail: "austinhb1993@gmail.com",
-        customerID: ""
+        customerID: "1354"
     },
     {
         customerName: "Rick James",
         phoneNumber: "555 555 5555",
         customerEmail: "rickjames@rickjames.com",
-        customerID: ""
+        customerID: "9193"
     },
     {
         customerName: "Miki",
@@ -113,6 +113,9 @@ app.post("/api/new", function(req, res) {
         res.json(false);
         console.log(false);
     }
+
+    console.log(waitlist);
+    console.log(tables);
 
 });
 
