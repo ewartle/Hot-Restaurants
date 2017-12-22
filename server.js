@@ -19,71 +19,8 @@ app.use(bodyParser.json());
 var tables = [];
 var waitlist = [];
 
+    
 
-//NOTE:  I added the "1" to tables and waitlist to work with empty arrays.  Remove the 1 if we want to work with full arrays.
-var tables1 = [{
-        customerName: "Ahmed",
-        customerEmail: "afhaque89@gmail.com",
-        customerID: "afhaque89",
-        phoneNumber: "979-587-0887"
-    },
-    {
-        customerName: "John Liscar",
-        phoneNumber: "7065706063",
-        customerEmail: "john.liscar@gmail.com",
-        customerID: "1424"
-    },
-    {
-        customerName: "Austin Branham",
-        phoneNumber: "7708837281",
-        customerEmail: "austinhb1993@gmail.com",
-        customerID: "1354"
-    },
-    {
-        customerName: "Rick James",
-        phoneNumber: "555 555 5555",
-        customerEmail: "rickjames@rickjames.com",
-        customerID: "9193"
-    },
-    {
-        customerName: "Miki",
-        phoneNumber: "555-555-5555",
-        customerEmail: "miki@gmail.com",
-        customerID: "miki3"
-    }
-];
-
-var waitlist1 = [{
-        customerName: "Ahmed",
-        customerEmail: "afhaque89@gmail.com",
-        customerID: "afhaque89",
-        phoneNumber: "979-587-0887"
-    },
-    {
-        customerName: "John Liscar",
-        phoneNumber: "7065706063",
-        customerEmail: "john.liscar@gmail.com",
-        customerID: "32"
-    },
-    {
-        customerName: "Austin Branham",
-        phoneNumber: "7708837281",
-        customerEmail: "austinhb1993@gmail.com",
-        customerID: "43"
-    },
-    {
-        customerName: "Rick James",
-        phoneNumber: "555 555 5555",
-        customerEmail: "rickjames@rickjames.com",
-        customerID: "55"
-    },
-    {
-        customerName: "Miki",
-        phoneNumber: "555-555-5555",
-        customerEmail: "miki@gmail.com",
-        customerID: "miki3"
-    }
-];
 //Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
@@ -113,8 +50,8 @@ app.post("/api/new", function(req, res) {
     var newReservation = req.body
     
     // Using a RegEx Pattern to remove spaces from newCharacter
-    newReservation.routeName = newReservation.customerName.replace(/\s+/g, "").toLowerCase();
-    console.log(newReservation);
+    //newReservation.routeName = newReservation.customerName.replace(/\s+/g, "").toLowerCase();
+    //console.log(newReservation);
    
 
     if (tables.length < 5) {
