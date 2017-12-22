@@ -53,7 +53,7 @@
     $("#add-btn").on("click", function(event) {
         event.preventDefault();
 
-
+//payload -- generic concept for what is happening
         var newReservation = {
             customerName: $("#name").val().trim(),
             phoneNumber: $("#phoneNumber").val().trim(),
@@ -67,16 +67,20 @@
         $.post("/api/new", newReservation)
 
             .done(function(data) {
-          
+             console.log (data);
 
-            if (true) {
+            if (data) {
                 alert("You have a table!");
                 $(".form").trigger("reset");
             } 
 
-            else {
+            else if (data===false) {
                 alert("You are on the waitlist.");
                 $(".form").trigger("reset");
+            }
+
+            else {
+                console.log("Try again.")
             }
         });
     });
